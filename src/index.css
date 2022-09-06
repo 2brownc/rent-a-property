@@ -1,3 +1,9 @@
+/*
+Cinzel
+font-family: 'Cinzel', serif;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +16,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.websiteTitle {
+  font-family: 'Cinzel', serif;
+  font-weight: medium;
 }
