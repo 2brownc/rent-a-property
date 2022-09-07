@@ -14,12 +14,28 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import HomeIcon from '@mui/icons-material/Home';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import InfoIcon from '@mui/icons-material/Info';
 
 const navigationLinks = [
   { name: "Home", href: "#home" },
   { name: "Catalog", href: "#catalog" },
   { name: "About", href: "#about" },
 ];
+
+function NavButton({ name, link, icon }) {
+  return (
+    <Button
+      color="inherit"
+      href={link}
+      key={link}
+      startIcon={icon}
+    >
+      {name}
+    </Button>
+  );
+}
 
 export default function Navigation() {
 
@@ -60,15 +76,14 @@ export default function Navigation() {
               }
             }}
           >
-            {navigationLinks.map((item) => (
-              <Button
-                color="inherit"
-                href={item.href}
-                key={item.href}
-              >
-                {item.name}
-              </Button>
-            ))}
+            <Stack
+              direction="row"
+              spacing={1}
+            >
+              <NavButton name="Home" link="/" icon={<HomeIcon />} />
+              <NavButton name="Catalog" link="#catalog" icon={<ViewListIcon />} />
+              <NavButton name="About" link="#about" icon={<InfoIcon />} />
+            </Stack>
           </Box>
 
           <Box
@@ -93,23 +108,25 @@ export default function Navigation() {
             onClose={() => setSideNavOpen(false)}
             onOpen={() => setSideNavOpen(true)}
           >
-            <Box>
+            <Box
+            >
               <Button onClick={() => setSideNavOpen(false)}>HIDE ME</Button>
               <Divider />
-              <Stack
-                direction="column"
-                alignItems="flex-start"
+              <Box
+                sx={{
+                  paddingLeft: 1,
+                  paddingRight: 3
+                }}
               >
-                {navigationLinks.map((item) => (
-                  <Button
-                    color="inherit"
-                    href={item.href}
-                    key={item.href}
-                  >
-                    {item.name}
-                  </Button>
-                ))}
-              </Stack>
+                <Stack
+                  direction="column"
+                  alignItems="flex-start"
+                >
+                  <NavButton name="Home" link="/" icon={<HomeIcon />} />
+                  <NavButton name="Catalog" link="#catalog" icon={<ViewListIcon />} />
+                  <NavButton name="About" link="#about" icon={<InfoIcon />} />
+                </Stack>
+              </Box>
             </Box>
           </SwipeableDrawer>
 

@@ -8,7 +8,9 @@ import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
+
 import Navigation from './components/navigation/Navigation';
+import Catalog from './components/catalog/Catalog';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -62,7 +64,7 @@ function App(props) {
       <Toolbar id="back-to-top-anchor" />
       <Navigation />
       <Container>
-        {/* main content */}
+        <Catalog />
       </Container>
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">
