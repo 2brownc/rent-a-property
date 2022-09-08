@@ -87,7 +87,13 @@ const catalogSlice = createSlice({
   },
 });
 
-export const { filterCatalog } = catalogSlice.action;
+export const {
+  filterCatalog,
+  setPrice,
+  setArea,
+  setBedrooms,
+  setCity,
+} = catalogSlice.actions;
 
 export default catalogSlice.reducer;
 
