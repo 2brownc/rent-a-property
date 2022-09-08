@@ -20,16 +20,28 @@ export default function Filters() {
         <Grid item md={6} xs={12}>
           <Grid container>
             <Grid item xs={12}>
-              <SelectCity />
-              <SelectBedrooms />
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <SelectCity />
+                </Grid>
+                <Grid item xs={12}>
+                  <SelectBedrooms />
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
         <Grid item md={6} xs={12}>
           <Grid container>
             <Grid item xs={12}>
-              <SelectPrice />
-              <SelectAreaRange />
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <SelectPrice />
+                </Grid>
+                <Grid item xs={12}>
+                  <SelectAreaRange />
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
