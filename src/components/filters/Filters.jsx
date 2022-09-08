@@ -10,8 +10,11 @@ import SelectAreaRange from './SelectAreaRange';
 
 export default function Filters() {
   return (
-    <Box>
-      <Grid container>
+    <Box my={3}>
+      <Grid
+        container
+        spacing={3}
+      >
         <Grid item xs={6}>
           <SelectCity />
         </Grid>

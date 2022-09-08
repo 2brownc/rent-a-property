@@ -103,7 +103,12 @@ function PropertyCard({
 
 export default function Catalog() {
   return (
-    <Box sx={{ padding: 3 }}>
+    <Box p={3}
+      sx={{
+        display: "flex",
+        flexWrap: "wrap"
+      }}
+    >
       <PropertyCard
         propertyId={propertyInfo.propertyId}
         price={propertyInfo.price}
