@@ -13,17 +13,14 @@ import {
 export default function SelectCity(/*cityList, city, setCity*/) {
   const cityValue = useSelector(city);
   const cityListValue = useSelector(cityList);
+  console.log("city", cityValue)
   const dispatch = useDispatch();
-
-  const [value, setValue] = useState(cityListValue[0]);
-  const [inputValue, setInputValue] = useState('');
-
+  const [inputValue, setInputValue] = useState(cityValue);
   return (
     <Box>
       <Autocomplete
-        value={value}
+        value={cityValue}
         onChange={(event, newValue) => {
-          setValue(newValue);
           dispatch(setCity(newValue));
         }}
         inputValue={inputValue}
