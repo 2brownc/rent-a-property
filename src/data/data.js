@@ -1,4 +1,4 @@
-data = [
+export const data = [
   {
     key: 1,
     city: 'bangalore',
@@ -27,7 +27,7 @@ data = [
     bathrooms: 3,
     area: 1800,
     address: 'Apartment in Whitefield',
-    image: 'images/b3.png'
+    image: 'images/b3.jpg'
   },
   {
     key: 4,
@@ -370,5 +370,3 @@ data = [
     image: 'images/m37.jpg'
   },
 ];
-
-export default data;
