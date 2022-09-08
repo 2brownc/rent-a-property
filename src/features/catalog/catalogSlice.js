@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit';
-import data from '../data/data';
+import data from '../../data/data';
 
 const initialState = {
   catalog: data,
   city: null,
   price: 300000,
-  area: [0, 5000],
+  area: [500, 5000],
   bedrooms: []
 };
 
@@ -73,13 +73,7 @@ const catalogSlice = createSlice({
       //filter by bedrooms
       if (bedrooms.length > 0) {
         catalog = catalog.filter((item) => {
-          for (const bedroomCount of bedrooms) {
-            if (Number(bedroomCount[0]) === item.bedrooms) {
-              return true;
-            }
-          }
-
-          return false;
+          return bedrooms.includes(item.bedrooms);
         });
       }
 
@@ -107,4 +101,3 @@ export const price = (state) => state.catalog.price;
 export const area = (state) => state.catalog.area;
 export const bedrooms = (state) => state.catalog.bedrooms;
 export const city = (state) => state.catalog.city;
-export const cityList = (state) => state.catalog.cityList;
