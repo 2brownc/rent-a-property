@@ -83,7 +83,7 @@ function PropertyCard({
             </Stack>
           </Box>
           <Box>
-            <Typography sx={{ fontWeight: "bold" }}>
+            <Typography>
               {address}
             </Typography>
           </Box>
@@ -103,7 +103,7 @@ function PropertyCard({
 
 export default function Catalog() {
   return (
-    <Box>
+    <Box sx={{ padding: 3 }}>
       <PropertyCard
         propertyId={propertyInfo.propertyId}
         price={propertyInfo.price}

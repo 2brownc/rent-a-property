@@ -44,8 +44,8 @@ export default function SelectBedrooms() {
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+    <Box>
+      <FormControl sx={{ width: "100%" }}>
         <InputLabel id="bedrooms-select-label">Bedrooms</InputLabel>
         <Select
           labelId="bedrooms-select-label"
@@ -65,7 +65,7 @@ export default function SelectBedrooms() {
           ))}
         </Select>
       </FormControl>
-    </div>
+    </Box>
   );
 }
 

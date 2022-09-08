@@ -28,7 +28,7 @@ export default function SelectCity(/*cityList, city, setCity*/) {
         }}
         id="controllable-states-demo"
         options={cityList}
-        sx={{ width: 300 }}
+        sx={{ width: "100%" }}
         renderInput={(params) => <TextField {...params} label="Select City" />}
       />
     </Box>
