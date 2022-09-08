@@ -17,6 +17,7 @@ import Stack from '@mui/material/Stack';
 import HomeIcon from '@mui/icons-material/Home';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import InfoIcon from '@mui/icons-material/Info';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const navigationLinks = [
   { name: "Home", href: "#home" },
@@ -110,7 +111,19 @@ export default function Navigation() {
           >
             <Box
             >
-              <Button onClick={() => setSideNavOpen(false)}>HIDE ME</Button>
+              <Box
+                sx={{
+                  paddingLeft: 1,
+                  paddingRight: 3
+                }}
+              >
+                <Button
+                  onClick={() => setSideNavOpen(false)}
+                  startIcon={<ArrowForwardIosIcon />}
+                >
+                  Close
+                </Button>
+              </Box>
               <Divider />
               <Box
                 sx={{
