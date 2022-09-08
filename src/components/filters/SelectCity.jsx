@@ -4,11 +4,11 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';
 
 const cityList = [
-  { label: "Bangalore", cityID: 1 },
-  { label: "Pune", cityID: 2 },
-  { label: "Hyderabad", cityID: 3 },
-  { label: "Mumbai", cityID: 4 },
-  { label: "Chennai", cityID: 5 },
+  { label: "Bangalore" },
+  { label: "Pune" },
+  { label: "Hyderabad" },
+  { label: "Mumbai" },
+  { label: "Chennai" },
 ];
 
 export default function SelectCity(/*cityList, city, setCity*/) {
