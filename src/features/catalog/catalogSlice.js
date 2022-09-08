@@ -73,7 +73,13 @@ const catalogSlice = createSlice({
       //filter by bedrooms
       if (bedrooms.length > 0) {
         catalog = catalog.filter((item) => {
-          return bedrooms.includes(item.bedrooms);
+          for (const bedroomCount of bedrooms) {
+            if (Number(bedroomCount[0]) === item.bedrooms) {
+              return true;
+            }
+          }
+
+          return false;
         });
       }
 
