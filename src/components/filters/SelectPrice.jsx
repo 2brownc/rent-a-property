@@ -22,7 +22,7 @@ export default function SelectPrice() {
   const dispatch = useDispatch();
 
   const minPrice = 0;
-  const maxPrice = 10000000;
+  const maxPrice = 500000;
   const step = 50000;
 
 
