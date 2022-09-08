@@ -1,9 +1,21 @@
-import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit';
-import data from '../../data/data';
+import { createSlice, current } from '@reduxjs/toolkit';
+import { data } from '../../data/data';
+
+function getAllCities() {
+  const list = [];
+  for (const item of data) {
+    if (!list.includes(item.city)) {
+      list.push(item.city)
+    }
+  }
+
+  return list;
+}
 
 const initialState = {
   catalog: data,
-  city: null,
+  city: getAllCities()[0],
+  cityList: getAllCities(),
   price: 300000,
   area: [500, 5000],
   bedrooms: []
@@ -46,23 +58,25 @@ const catalogSlice = createSlice({
       };
     },
     filterCatalog: (state, action) => {
-      const city = current(state.city);
-      const price = current(state.price);
-      const area = current(state.area);
-      const bedrooms = current(state.bedrooms);
+      const city = action.payload.cityValue;
+      const price = action.payload.priceValue;
+      const area = action.payload.areaValue;
+      const bedrooms = action.payload.bedroomsValue;
 
-      const catalog = data;
+      console.log("filter catalog", city, price, area, bedrooms)
+
+      let catalog = data;
 
       //filter by city
       if (city != null) {
         catalog = catalog.filter((item) => {
-          item.city === city;
+          return item.city === city;
         });
       }
 
       //filter by max price
       catalog = catalog.filter((item) => {
-        item.price <= price;
+        return item.price <= price;
       });
 
       //filter by area
@@ -73,7 +87,13 @@ const catalogSlice = createSlice({
       //filter by bedrooms
       if (bedrooms.length > 0) {
         catalog = catalog.filter((item) => {
-          return bedrooms.includes(item.bedrooms);
+          for (const numRooms of bedrooms) {
+            if (Number(numRooms[0]) === item.bedrooms) {
+              return true;
+            }
+          }
+
+          return false;
         });
       }
 
@@ -101,3 +121,5 @@ export const price = (state) => state.catalog.price;
 export const area = (state) => state.catalog.area;
 export const bedrooms = (state) => state.catalog.bedrooms;
 export const city = (state) => state.catalog.city;
+export const cityList = (state) => state.catalog.cityList;
+export const catalog = (state) => state.catalog.catalog;
