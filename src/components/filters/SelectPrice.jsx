@@ -7,22 +7,35 @@ import Slider from '@mui/material/Slider';
 import MuiInput from '@mui/material/Input';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  price,
+  setPrice,
+} from '../../features/catalog/catalogSlice';
+
 const Input = styled(MuiInput)`
   width: 100px;
 `;
 
 export default function SelectPrice() {
+  const priceValue = useSelector(price);
+  const dispatch = useDispatch();
+
   const minPrice = 0;
   const maxPrice = 10000000;
   const step = 50000;
-  const [value, setValue] = React.useState(30);
+  const [value, setValue] = React.useState(priceValue);
+
+  React.useEffect(() => {
+    setValue(priceValue);
+  }, [priceValue]);
 
   const handleSliderChange = (event, newValue) => {
-    setValue(newValue);
+    dispatch(setPrice(newValue));
   };
 
   const handleInputChange = (event) => {
-    setValue(event.target.value === '' ? '' : Number(event.target.value));
+    dispatch(setPrice(event.target.value === '' ? '' : Number(event.target.value)));
   };
 
   const handleBlur = () => {
