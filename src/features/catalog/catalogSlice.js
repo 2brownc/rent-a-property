@@ -62,9 +62,6 @@ const catalogSlice = createSlice({
       const price = action.payload.priceValue;
       const area = action.payload.areaValue;
       const bedrooms = action.payload.bedroomsValue;
-
-      console.log("filter catalog", city, price, area, bedrooms)
-
       let catalog = data;
 
       //filter by city
