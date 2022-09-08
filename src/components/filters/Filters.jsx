@@ -17,20 +17,33 @@ export default function Filters() {
         container
         spacing={3}
       >
-        <Grid item xs={6}>
-          <SelectCity />
+        <Grid item md={6} xs={12}>
+          <Grid container>
+            <Grid item xs={12}>
+              <SelectCity />
+              <SelectBedrooms />
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <SelectPrice />
+        <Grid item md={6} xs={12}>
+          <Grid container>
+            <Grid item xs={12}>
+              <SelectPrice />
+              <SelectAreaRange />
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <SelectBedrooms />
-        </Grid>
-        <Grid item xs={6}>
-          <SelectAreaRange />
-        </Grid>
-        <Grid item xs={6}>
-          <SearchButton />
+        <Grid item xs={12}>
+          <Grid
+            container
+            direction="row-reverse"
+            justifyContent="flex-start"
+            alignItems="center"
+          >
+            <Grid item xs={3}>
+              <SearchButton />
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Box>

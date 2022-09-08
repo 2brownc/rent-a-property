@@ -12,6 +12,7 @@ import Fade from '@mui/material/Fade';
 import Navigation from './components/navigation/Navigation';
 import Catalog from './components/catalog/Catalog';
 import Filters from './components/filters/Filters';
+import Home from './pages/Home';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -65,8 +66,7 @@ function App(props) {
       <Toolbar id="back-to-top-anchor" />
       <Navigation />
       <Container>
-        <Filters />
-        <Catalog />
+        <Home />
       </Container>
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">
