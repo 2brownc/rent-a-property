@@ -24,11 +24,7 @@ export default function SelectPrice() {
   const minPrice = 0;
   const maxPrice = 10000000;
   const step = 50000;
-  const [value, setValue] = React.useState(priceValue);
 
-  React.useEffect(() => {
-    setValue(priceValue);
-  }, [priceValue]);
 
   const handleSliderChange = (event, newValue) => {
     dispatch(setPrice(newValue));
@@ -57,7 +53,7 @@ export default function SelectPrice() {
         </Grid>
         <Grid item>
           <Input
-            value={value}
+            value={priceValue}
             size="small"
             onChange={handleInputChange}
             onBlur={handleBlur}
@@ -72,7 +68,7 @@ export default function SelectPrice() {
         </Grid>
         <Grid item xs>
           <Slider
-            value={typeof value === 'number' ? value : 0}
+            value={typeof priceValue === 'number' ? priceValue : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
             min={minPrice}

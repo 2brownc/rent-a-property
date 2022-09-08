@@ -14,6 +14,13 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+  bedrooms,
+  setBedrooms,
+} from '../../features/catalog/catalogSlice';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -27,20 +34,18 @@ const MenuProps = {
 };
 
 const numBedrooms = [
-  { label: '1 bed' },
-  { label: '2 beds' },
-  { label: '3 beds' },
-  { label: '4 beds' }
+  '1 bed',
+  '2 beds',
+  '3 beds',
+  '4 beds'
 ];
 
 export default function SelectBedrooms() {
-  const [bedrooms, setBedrooms] = useState([]);
+  const bedroomsValue = useSelector(bedrooms);
+  const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
-    console.log("bed", target.value);
-    setBedrooms(
-      target.value
-    );
+    dispatch(setBedrooms(target.value));
   };
 
   return (
@@ -51,16 +56,16 @@ export default function SelectBedrooms() {
           labelId="bedrooms-select-label"
           id="bedrooms-checkbox"
           multiple
-          value={bedrooms}
+          value={bedroomsValue}
           onChange={handleChange}
           input={<OutlinedInput label="Bedrooms" />}
           renderValue={(selected) => selected.join(', ')}
           MenuProps={MenuProps}
         >
           {numBedrooms.map((bedroom) => (
-            <MenuItem key={bedroom.id} value={bedroom.label}>
-              <Checkbox checked={bedrooms.indexOf(bedroom.label) > -1} />
-              <ListItemText primary={bedroom.label} />
+            <MenuItem key={bedroom} value={bedroom}>
+              <Checkbox checked={bedroomsValue.indexOf(bedroom) > -1} />
+              <ListItemText primary={bedroom} />
             </MenuItem>
           ))}
         </Select>
