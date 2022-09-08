@@ -5,7 +5,7 @@ const initialState = {
   catalog: data,
   city: null,
   price: 300000,
-  area: [500, 5000],
+  area: [0, 5000],
   bedrooms: []
 };
 

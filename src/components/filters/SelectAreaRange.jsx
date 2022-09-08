@@ -6,32 +6,47 @@ import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 import MuiInput from '@mui/material/Input';
 import SquareFootIcon from '@mui/icons-material/SquareFoot';
+import { useSelector, useDispatch } from 'react-redux';
+
+
+import {
+  area,
+  setArea,
+} from '../../features/catalog/catalogSlice';
+
 
 const Input = styled(MuiInput)`
   width: 100px;
 `;
 
 export default function SelectPrice() {
+  const areaValue = useSelector(area);
+  const dispatch = useDispatch();
+
   const minArea = 0;
   const maxArea = 5000;
   const step = 100;
   const minDistance = 500;
-  
+
   const valuetext = (value) => {
     return `${value} sq.ft`;
-  }  
-  
-  const [value, setValue] = React.useState([1000, 2000]);
+  }
 
-  const handleChange1 = (event, newValue, activeThumb) => {
+  const [value, setValue] = React.useState(areaValue);
+
+  React.useEffect(() => {
+    setValue(areaValue)
+  }, [areaValue]);
+
+  const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
 
     if (activeThumb === 0) {
-      setValue([Math.min(newValue[0], value[1] - minDistance), value[1]]);
+      dispatch(setArea([Math.min(newValue[0], value[1] - minDistance), value[1]]));
     } else {
-      setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
+      dispatch(setArea([value[0], Math.max(newValue[1], value[0] + minDistance)]));
     }
   };
 
@@ -58,7 +73,7 @@ export default function SelectPrice() {
           <Slider
             getAriaLabel={() => 'Minimum distance'}
             value={value}
-            onChange={handleChange1}
+            onChange={handleChange}
             valueLabelDisplay="auto"
             getAriaValueText={valuetext}
             disableSwap
