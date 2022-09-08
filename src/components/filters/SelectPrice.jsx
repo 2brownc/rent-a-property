@@ -36,21 +36,11 @@ export default function SelectPrice() {
   return (
     <Box>
       <Typography id="input-slider" gutterBottom>
-        Price
+        Max Price
       </Typography>
-      <Grid container spacing={2} alignItems="center">
+      <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item>
           <CurrencyRupeeIcon />
-        </Grid>
-        <Grid item xs>
-          <Slider
-            value={typeof value === 'number' ? value : 0}
-            onChange={handleSliderChange}
-            aria-labelledby="input-slider"
-            min={minPrice}
-            max={maxPrice}
-            step={step}
-          />
         </Grid>
         <Grid item>
           <Input
@@ -67,6 +57,17 @@ export default function SelectPrice() {
             }}
           />
         </Grid>
+        <Grid item xs>
+          <Slider
+            value={typeof value === 'number' ? value : 0}
+            onChange={handleSliderChange}
+            aria-labelledby="input-slider"
+            min={minPrice}
+            max={maxPrice}
+            step={step}
+          />
+        </Grid>
+
       </Grid>
     </Box>
   );
