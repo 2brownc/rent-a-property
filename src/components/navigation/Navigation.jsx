@@ -81,8 +81,8 @@ export default function Navigation() {
               spacing={1}
             >
               <NavButton name="Home" link="/" icon={<HomeIcon />} />
-              <NavButton name="Catalog" link="#catalog" icon={<ViewListIcon />} />
-              <NavButton name="About" link="#about" icon={<InfoIcon />} />
+              <NavButton name="Catalog" link="/search" icon={<ViewListIcon />} />
+              <NavButton name="About" link="/about" icon={<InfoIcon />} />
             </Stack>
           </Box>
 
@@ -123,8 +123,8 @@ export default function Navigation() {
                   alignItems="flex-start"
                 >
                   <NavButton name="Home" link="/" icon={<HomeIcon />} />
-                  <NavButton name="Catalog" link="#catalog" icon={<ViewListIcon />} />
-                  <NavButton name="About" link="#about" icon={<InfoIcon />} />
+                  <NavButton name="Catalog" link="/search" icon={<ViewListIcon />} />
+                  <NavButton name="About" link="/about" icon={<InfoIcon />} />
                 </Stack>
               </Box>
             </Box>

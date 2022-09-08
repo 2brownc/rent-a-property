@@ -1,12 +1,10 @@
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 
 export default function About() {
   return (
-    <Container
-      maxWidth="md"
-    >
+    <Box>
       <Stack
         justifyContent="center"
         alignItems="center"
@@ -26,6 +24,6 @@ export default function About() {
           Making Dreams Come True Since 1984
         </Typography>
       </Stack>
-    </Container>
+    </Box>
   );
 }

@@ -9,10 +9,17 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
 import Navigation from './components/navigation/Navigation';
-import Catalog from './components/catalog/Catalog';
-import Filters from './components/filters/Filters';
 import Home from './pages/Home';
+import About from './pages/About';
+import Search from './pages/Search';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -66,7 +73,13 @@ function App(props) {
       <Toolbar id="back-to-top-anchor" />
       <Navigation />
       <Container>
-        <Home />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </BrowserRouter>
       </Container>
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">

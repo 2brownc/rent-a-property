@@ -6,9 +6,7 @@ import Catalog from '../components/catalog/Catalog';
 
 export default function Search() {
   return (
-    <Container
-      maxWidth="md"
-    >
+    <>
       <Box
         py={3}
       >
@@ -19,6 +17,6 @@ export default function Search() {
       >
         <Catalog />
       </Box>
-    </Container>
+    </>
   );
 }

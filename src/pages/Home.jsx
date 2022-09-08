@@ -1,13 +1,11 @@
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 export default function Home() {
   return (
-    <Container
-      maxWidth="md"
-    >
+    <Box>
       <Stack
         justifyContent="center"
         alignItems="center"
@@ -28,10 +26,11 @@ export default function Home() {
         </Typography>
         <Button
           variant="contained"
+          href="/search"
         >
           Start You Search
         </Button>
       </Stack>
-    </Container>
+    </Box>
   );
 }
