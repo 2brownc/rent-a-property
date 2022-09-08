@@ -35,10 +35,10 @@ export default function SelectPrice() {
   };
 
   const handleBlur = () => {
-    if (value < 0) {
-      setValue(0);
-    } else if (value > maxPrice) {
-      setValue(maxPrice);
+    if (priceValue < 0) {
+      dispatch(setPrice(0));
+    } else if (priceValue > maxPrice) {
+      dispatch(setPrice(maxPrice));
     }
   };
 
