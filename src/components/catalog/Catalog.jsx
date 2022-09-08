@@ -17,9 +17,13 @@ import SquareFootIcon from '@mui/icons-material/SquareFoot';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+
+import { useSelector } from 'react-redux';
+import { catalog } from '../../features/catalog/catalogSlice';
 
 const propertyInfo = {
-  propertyId: 123,
+  key: 123,
   price: 500000,
   address: "234 street, andheri west, Delhi",
   bedrooms: 3,
@@ -30,29 +34,34 @@ const propertyInfo = {
 };
 
 function PropertyCard({
-  propertyId,
   price,
   address,
   bedrooms,
   bathrooms,
   propertyArea,
   mainPicture,
-  pictures
 }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
           image={mainPicture}
           alt="picture of the property"
+          height="300vh"
+          width="20vw"
         />
         <CardContent>
           <Box>
-            <Typography gutterBottom variant="h5" component="div">
-              {price}
-            </Typography>
+            <Stack
+              direction="row"
+              alignItems="center"
+            >
+              <CurrencyRupeeIcon />
+              <Typography variant="h5" component="div">
+                {price}
+              </Typography>
+            </Stack>
           </Box>
           <Box mb={1}>
             <Stack
@@ -83,7 +92,10 @@ function PropertyCard({
             </Stack>
           </Box>
           <Box>
-            <Typography>
+            <Typography
+              component="div"
+              noWrap={true}
+            >
               {address}
             </Typography>
           </Box>
@@ -102,23 +114,29 @@ function PropertyCard({
 }
 
 export default function Catalog() {
+  const catalogValues = useSelector(catalog);
   return (
     <Box p={3}
-      sx={{
-        display: "flex",
-        flexWrap: "wrap"
-      }}
     >
-      <PropertyCard
-        propertyId={propertyInfo.propertyId}
-        price={propertyInfo.price}
-        address={propertyInfo.address}
-        bedrooms={propertyInfo.bedrooms}
-        bathrooms={propertyInfo.bathrooms}
-        propertyArea={propertyInfo.propertyArea}
-        mainPicture={propertyInfo.mainPicture}
-        pictures={propertyInfo.pictures}
-      />
+      <Grid
+        container
+        alignItems="stretch"
+        spacing={1}
+      >
+        {catalogValues.map((property) => (
+          <Grid item md={4} sm={6} xs={12}>
+            <PropertyCard
+              key={property.key}
+              price={property.price}
+              address={property.address}
+              bedrooms={property.bedrooms}
+              bathrooms={property.bathrooms}
+              propertyArea={property.area}
+              mainPicture={property.image}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 }
