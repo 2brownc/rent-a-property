@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { data } from '../../data/data';
 
 function getAllCities() {
@@ -14,7 +14,7 @@ function getAllCities() {
 
 const initialState = {
   catalog: data,
-  city: getAllCities()[0],
+  city: "",
   cityList: getAllCities(),
   price: 300000,
   area: [500, 5000],
@@ -65,7 +65,7 @@ const catalogSlice = createSlice({
       let catalog = data;
 
       //filter by city
-      if (city != null) {
+      if (city.length > 0) {
         catalog = catalog.filter((item) => {
           return item.city === city;
         });
