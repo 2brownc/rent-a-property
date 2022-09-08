@@ -8,6 +8,7 @@ import SelectCity from './SelectCity';
 import SelectBedrooms from './SelectBedrooms';
 import SelectPrice from './SelectPrice';
 import SelectAreaRange from './SelectAreaRange';
+import SearchButton from './SearchButton';
 
 export default function Filters() {
   return (
@@ -27,6 +28,9 @@ export default function Filters() {
         </Grid>
         <Grid item xs={6}>
           <SelectAreaRange />
+        </Grid>
+        <Grid item xs={6}>
+          <SearchButton />
         </Grid>
       </Grid>
     </Box>
