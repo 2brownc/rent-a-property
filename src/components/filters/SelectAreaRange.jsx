@@ -79,6 +79,7 @@ export default function SelectPrice() {
             disableSwap
             min={minArea}
             max={maxArea}
+            step={step}
           />
         </Grid>
       </Grid>
