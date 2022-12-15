@@ -1,4 +1,6 @@
-# rent-a-property
+# [Rent A Property Website Mockup](https://rent-a-property.pages.dev/)
+
+[Click Here To View](https://rent-a-property.pages.dev/)
 
 A “rent-a-property” app where customers can browse through the catalogue for available properties to rent.
 
